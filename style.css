@@ -1,0 +1,253 @@
+ :root {
+     --color-1: #202124;
+     --color-2: #414141;
+     --color-3: #445760;
+     --color-4: #F6F7F8;
+     --color-4-darker: #e8ecf0;
+     --color-5: rgb(205, 243, 212);
+ }
+
+ * {
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+     font-family: "Helvetica", "Arial", sans-serif;
+ }
+
+ body {
+     color: var(--color-2);
+     background-color: #EEEEEE;
+     font-size: 16px;
+ }
+
+ h1 {
+     font-size: 2em;
+ }
+
+ h2 {
+     font-size: 1.6em;
+ }
+
+ .page {
+     height: 1400px;
+ }
+
+ .menu-container {
+     width: 100%;
+     background-color: var(--color-1);
+     position: relative;
+     position: fixed;
+     z-index: 2;
+ }
+
+ .menu {
+     display: flex;
+     list-style-type: none;
+     height: 50px;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .menu .portfolio-button {
+     display: flex;
+ }
+
+ .button,
+ .dropdown-button {
+     background-color: var(--color-1);
+     border-radius: 5px;
+     padding: 5px 5px;
+     margin: 0px 15px;
+     color: var(--color-4);
+     text-decoration: none;
+     font-size: 0.7em;
+ }
+
+ .button:link,
+ .button:visited {
+     color: var(--color-4);
+ }
+
+ .button:hover,
+ .button:visited:hover {
+     background-color: var(--color-2);
+ }
+
+ .button:active,
+ .button:visited:active {
+     color: var(--color-1);
+     background-color: var(--color-4-darker);
+ }
+
+ .starting-hero {
+     display: flex;
+     height: 900px;
+     width: 100%;
+     background-color: var(--color-1);
+     justify-content: center;
+     align-items: center;
+     background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #454694 75%);
+     opacity: 0.95;
+     flex-direction: column;
+ }
+
+ .hero-description {
+     margin: 25px;
+     margin-top: 95px;
+     overflow: hidden;
+     text-align: center;
+     padding: 7px;
+     color: var(--color-4-darker);
+ }
+
+ .hero-description h1 {
+     margin: 40px 25px;
+ }
+
+ .hero-description h2 {
+     margin: 35px 25px;
+     margin-bottom: 40px;
+     font-size: 1.4rem;
+ }
+
+ .starting-hero img {
+     border-radius: 45px;
+     border: 2px solid var(--color-1);
+     margin: 50px;
+     margin-top: 10px;
+ }
+
+ .spacer {
+     height: 50px;
+     width: 100%;
+     background-color: var(--color-1);
+ }
+
+ .content-container {
+     display: flex;
+     background-color: var(--color-1);
+     justify-content: center;
+ }
+
+ .starting-section {
+     text-align: middle;
+     color: var(--color-4);
+ }
+
+ .header-svg {
+     filter: invert(100%) sepia(31%) saturate(582%) hue-rotate(177deg) brightness(101%) contrast(94%);
+ }
+
+ @media only screen and (max-width: 699px) {
+
+     .button,
+     .dropdown-button {
+         font-size: 1.4em;
+         white-space: nowrap;
+     }
+
+     .dropdown {
+         position: relative;
+     }
+
+     .dropdown>span {
+         z-index: 2;
+         position: relative;
+         /* z-index is only is for elements which are positioned */
+         cursor: pointer;
+     }
+
+     .dropdown-menu {
+         display: none;
+     }
+
+     .dropdown:hover .dropdown-menu {
+         display: flex;
+         flex-direction: column;
+         background-color: var(--color-1);
+         padding-top: 50px;
+         position: absolute;
+         top: -13px;
+         left: -30px;
+         z-index: 1;
+     }
+
+     .dropdown-menu li {
+         list-style: none;
+         border-bottom: 1px solid #fff;
+         padding: 0px 0px 20px 20px;
+         margin: 10px 5px 20px 5px;
+     }
+
+     .dropdown-menu li:first-of-type {
+         padding-top: 10px;
+     }
+
+     .styling-line {
+         border-bottom: 1px solid red;
+         padding: 0px 0px 0px 0px;
+     }
+
+     .dropdown-menu li .social-button {
+         align-self: center;
+         padding-top: 20px;
+         width: 30px;
+     }
+ }
+
+ @media only screen and (min-width: 700px) {
+     .dropdown-button {
+         display: none;
+     }
+
+     .dropdown-menu {
+         display: flex;
+         flex: row;
+         list-style-type: none;
+     }
+
+     .menu-container {
+         padding: 0px 0px;
+     }
+
+     .menu {
+         display: inline;
+     }
+
+     .menu .portfolio-button {
+         float: left;
+     }
+
+     .menu li img,
+     .menu li a {
+         float: left;
+         margin: 5px 10px;
+     }
+
+     .menu .button {
+         height: 30px;
+         display: flex;
+         align-items: center;
+     }
+
+     .contact {
+         margin-left: auto;
+         float: right;
+     }
+
+     .social-button img {
+         height: 20px;
+     }
+
+     .starting-hero {
+         flex-direction: row;
+     }
+     .hero-description {
+        border-radius: 45px;
+        background-color: hwb(131 81% 5% / 0.2);
+     }
+
+     .starting-hero img {
+         margin: auto 10% auto 10%;
+     }
+ }
