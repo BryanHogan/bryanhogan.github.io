@@ -204,7 +204,18 @@
 
  .card-side {
      transition: all 0.8s ease;
+     transform-style: preserve-3d;
+     transition: transform 0.8s;
+     -webkit-transform-style: preserve-3d;
+     -webkit-transition: -webkit-transform 0.8s;
+     -o-transform-style: preserve-3d;
+     -o-transition: -o-transform 0.8s;
+     -moz-transform-style: preserve-3d;
+     -moz-transition: -moz-transform 0.8s;
      backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     -webkit-backface-visibility: hidden;
+     -o-backface-visibility: hidden;
      position: absolute;
      width: 80%;
      top: 0;
