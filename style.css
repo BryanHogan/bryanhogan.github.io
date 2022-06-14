@@ -263,6 +263,10 @@
      margin: 20px 15px;
      text-align: left;
  }
+ .cardback-button {
+    position: relative;
+    bottom: 10px;
+ }
 
  .content-container-toolbox {
      width: 100%;
