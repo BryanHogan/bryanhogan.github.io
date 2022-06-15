@@ -18,6 +18,7 @@
      color: var(--color-2);
      background-color: #EEEEEE;
      font-size: 16px;
+     min-width: 280px;
  }
 
  h1 {
@@ -45,12 +46,24 @@
      display: flex;
      list-style-type: none;
      height: 50px;
-     justify-content: space-between;
+     justify-content: center;
      align-items: center;
  }
 
+ .menu:first-child>li {
+     flex-grow: 1;
+     flex-basis: 0;
+
+ }
+
+ .menu:last-child>li {
+    flex-grow: 1;
+    flex-basis: 0;
+
+ }
+
  .menu .portfolio-button {
-     display: flex;
+     text-align: center;
  }
 
  .button,
@@ -263,9 +276,10 @@
      margin: 20px 15px;
      text-align: left;
  }
+
  .cardback-button {
-    position: relative;
-    bottom: 10px;
+     position: relative;
+     bottom: 10px;
  }
 
  .content-container-toolbox {
@@ -406,6 +420,7 @@
 
      .dropdown {
          position: relative;
+         text-align: end;
      }
 
      .dropdown>span {
@@ -426,7 +441,7 @@
          padding-top: 50px;
          position: absolute;
          top: -12px;
-         left: -30px;
+         right: 0px;
          z-index: 1;
      }
 
