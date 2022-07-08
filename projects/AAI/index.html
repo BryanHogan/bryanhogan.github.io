@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js"></script>
+  <script src="mnist_data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+
+  <script src="globalVariables.js"></script>
+  <script src="ai.js"></script>
+  <script src="weightVisualization.js"></script>
+  <script src="input.js"></script>
+  <script src="output.js"></script>
+  <script src="sketchInitialization.js"></script>
+
+</head>
+
+<body>
+  <div class="introduction-container">
+    <div class="introduction">
+      <h1>AAI</h1>
+      <h2>A Project By <a href="https://www.linkedin.com/in/matthias-zens-370a1bb3/" target="_blank">Mattes
+          Zens</a></a>, <a href="https://www.linkedin.com/in/bryan-hogan-823242218/" target="_blank">Bryan Hogan</a> And
+        Timo Küsters</h2>
+      <p>In our course Applied AI held by Christian Faubel as part of our study at <a href="https://coco.study/" target="_blank">Code &
+          Context</a> we have created an AI
+        which is able to learn and identify numbers and letters.</p>
+      <p>Trained with MNIST-Data. Meaning it can recognise numbers. Letters can be manually learned.</p>
+    </div>
+
+
+  </div>
+  <article id="content">
+    <div class="section-container">
+
+      <section>
+        <h1>Draw a Character</h1>
+        <div id="input">
+        </div>
+        <button id="resetButton">Reset Input</button>
+        <script>
+          let resetButton = document.getElementById("resetButton");
+          resetButton.addEventListener('click', event => {
+            resetInput();
+          });      
+        </script>
+      </section>
+
+      <section>
+        <h1>Output</h1>
+        <div id="output">
+        </div>
+        <div class="button-group">
+          <button id="correctButton">Output Is Correct</button>
+          <script>
+            let correctButton = document.getElementById("correctButton");
+            correctButton.addEventListener('click', event => {
+              resetInput();
+            });
+          </script>
+          <div class="button-group-wrong">
+            <button id="wrongButton">Output Should Be This:</button>
+            <input type="text" id="userLabel" maxlength="1" placeholder="Enter correct output">
+            <script>
+              let wrongButton = document.getElementById("wrongButton");
+              wrongButton.addEventListener('click', event => {
+                let textfield = document.getElementById("userLabel");
+                userInputLabel = textfield.value;
+                manualTraining();
+              });
+            </script>
+            <script>
+              let textfield = document.getElementById("userLabel");
+              userInputLabel = textfield.value;
+            </script>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1>Weights</h1>
+        <div id="weights"></div>
+      </section>
+
+      <section>
+        <h1>How To Use</h1>
+        <ol>
+          <li>Draw your number or letter</li>
+          <li>Is output correct?<br>> Yes: Press green button<br>> No: Enter correct value then press red button</li>
+        </ol>
+      </section>
+    </div>
+  </article>
+
+</body>
+
+</html>
