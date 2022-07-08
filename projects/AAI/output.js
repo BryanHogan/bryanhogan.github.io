@@ -23,7 +23,7 @@ const outputSketch = (sketch) => {
 
         if (predictionOutput != null)
             predictionOutput.array().then(res=>  predictedNumber = IndexOfMaxValue(res[0]));
-        print(predictedNumber);
+        //print(predictedNumber);
 
         showOutput(predictionOutput);
     }
