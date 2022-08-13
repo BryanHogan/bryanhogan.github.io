@@ -124,6 +124,7 @@ h2 {
 .introduction {
     width: 80%;
     max-width: 650px;
+    padding-bottom: 40px;
 }
 
 .introduction p {
