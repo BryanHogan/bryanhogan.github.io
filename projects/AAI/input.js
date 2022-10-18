@@ -59,7 +59,7 @@ function drawGrid(){
   
   for(let x = 0; x < inputGridWidth; x++)
     for (let y = 0; y < inputGridHeight; y++){
-      sketch.fill(grid[x][y] * 100);
+      sketch.fill(grid[x][y] * 255);
       sketch.rect(tileSizeX * x,tileSizeX * y, tileSizeX);
     }  
 }

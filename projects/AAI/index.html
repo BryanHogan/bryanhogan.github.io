@@ -55,7 +55,6 @@
         <h1>Output</h1>
         <div id="output">
         </div>
-        <div class="button-group">
           <button id="correctButton">Output Is Correct</button>
           <script>
             let correctButton = document.getElementById("correctButton");
@@ -63,23 +62,6 @@
               resetInput();
             });
           </script>
-          <div class="button-group-wrong">
-            <button id="wrongButton">Output Should Be This:</button>
-            <input type="text" id="userLabel" maxlength="1" placeholder="Enter correct output">
-            <script>
-              let wrongButton = document.getElementById("wrongButton");
-              wrongButton.addEventListener('click', event => {
-                let textfield = document.getElementById("userLabel");
-                userInputLabel = textfield.value;
-                manualTraining();
-              });
-            </script>
-            <script>
-              let textfield = document.getElementById("userLabel");
-              userInputLabel = textfield.value;
-            </script>
-          </div>
-        </div>
       </section>
 
       <section>
@@ -90,7 +72,53 @@
       <section class="touch-input-container">
         <P style="margin: 15px">AI is wrong? Click what the answer should be. With each click the AI learns.</P>
         <div class="touch-input-button-container">
-          <button id="input-a">a</button>
+          <button id="0">0</button>
+          <button id="1">1</button>
+          <button id="2">2</button>
+          <button id="3">3</button>
+          <button id="4">4</button>
+          <button id="5">5</button>
+          <button id="6">6</button>
+          <button id="7">7</button>
+          <button id="8">8</button>
+          <button id="9">9</button>
+          <button id="A">A</button>
+          <button id="B">B</button>
+          <button id="C">C</button>
+          <button id="D">D</button>
+          <button id="E">E</button>
+          <button id="F">F</button>
+          <button id="G">G</button>
+          <button id="H">H</button>
+          <button id="I">I</button>
+          <button id="J">J</button>
+          <button id="K">K</button>
+          <button id="L">L</button>
+          <button id="M">M</button>
+          <button id="N">N</button>
+          <button id="O">O</button>
+          <button id="P">P</button>
+          <button id="Q">Q</button>
+          <button id="R">R</button>
+          <button id="S">S</button>
+          <button id="T">T</button>
+          <button id="U">U</button>
+          <button id="V">V</button>
+          <button id="W">W</button>
+          <button id="X">X</button>
+          <button id="Y">Y</button>
+          <button id="Z">Z</button>
+          <script>
+            let possibleInputs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            for (let i = 0; i < 36; i++) {
+              document.getElementById(possibleInputs[i]).addEventListener("click", event => {
+                userInputLabel = possibleInputs[i];
+                manualTraining();
+              })
+            }
+          </script>
+          <!--
           <script>
             let buttonA = document.getElementById("input-a");
             buttonA.addEventListener('click', event => {
@@ -117,9 +145,9 @@
             });
           </script>
 
-          <button id="input-d">d</button>
+          <button id="input-d">d</button> -->
         </div>
-      </section>
+      </section> 
 
       <section>
         <h1>How To Use</h1>
