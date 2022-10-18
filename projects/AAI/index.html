@@ -26,7 +26,8 @@
       <h2>A Project By <a href="https://www.linkedin.com/in/matthias-zens-370a1bb3/" target="_blank">Mattes
           Zens</a></a>, <a href="https://www.linkedin.com/in/bryan-hogan-823242218/" target="_blank">Bryan Hogan</a> And
         Timo Küsters</h2>
-      <p>In our course Applied AI held by Christian Faubel as part of our study at <a href="https://coco.study/" target="_blank">Code &
+      <p>In our course Applied AI held by Christian Faubel as part of our study at <a href="https://coco.study/"
+          target="_blank">Code &
           Context</a> we have created an AI
         which is able to learn and identify numbers and letters.</p>
       <p>Trained with MNIST-Data. Meaning it can recognise numbers. Letters can be manually learned.</p>
@@ -46,7 +47,7 @@
           let resetButton = document.getElementById("resetButton");
           resetButton.addEventListener('click', event => {
             resetInput();
-          });      
+          });
         </script>
       </section>
 
@@ -84,6 +85,40 @@
       <section>
         <h1>Weights</h1>
         <div id="weights"></div>
+      </section>
+
+      <section class="touch-input-container">
+        <P style="margin: 15px">AI is wrong? Click what the answer should be. With each click the AI learns.</P>
+        <div class="touch-input-button-container">
+          <button id="input-a">a</button>
+          <script>
+            let buttonA = document.getElementById("input-a");
+            buttonA.addEventListener('click', event => {
+              userInputLabel = "a";
+              manualTraining();
+            });
+          </script>
+
+          <button id="input-b">b</button>
+          <script>
+            let buttonB = document.getElementById("input-b");
+            buttonB.addEventListener('click', event => {
+              userInputLabel = "b";
+              manualTraining();
+            });
+          </script>
+
+          <button id="input-c">c</button>
+          <script>
+            let buttonC = document.getElementById("input-c");
+            buttonC.addEventListener('click', event => {
+              userInputLabel = "c";
+              manualTraining();
+            });
+          </script>
+
+          <button id="input-d">d</button>
+        </div>
       </section>
 
       <section>
