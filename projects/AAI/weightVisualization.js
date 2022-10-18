@@ -20,7 +20,6 @@ const weightVisualizationSketch = (sketch) => {
 
       weightGrid = Array.from({ length: 28 }, () => 
       Array.from({ length: 28}));
-
       //drawGrid();
 
         //faubel();
@@ -36,14 +35,15 @@ const weightVisualizationSketch = (sketch) => {
     }
 
     function getWeightsOfOutputUnitIntoWeightGrid(){
-      for (let i = 0; i < model.getWeights().length; i++) {
 
+      tf.tidy(() => {
+      for (let i = 0; i < model.getWeights().length; i++) {
         let weightTensor = model.getWeights()[i];
         //normalize by the global max value
         weightTensor = weightTensor.div(weightTensor.max());
         //get tensordata as linear array
         let weightArray = weightTensor.dataSync();
-
+        //weightTensor.dispose();
         let weigthsOfOutputUnit = [];
 
         for (let i = outputToVisualize; i < weightArray.length; i += outputUnits){
@@ -57,7 +57,10 @@ const weightVisualizationSketch = (sketch) => {
             weightGrid[x][y] = weigthsOfOutputUnit[y + x * weightGridHeight];
           }
 
-    }
+      }
+
+  })
+
   }
 
     function drawGrid(array, tileSize){

@@ -1,6 +1,6 @@
 let model;
 let layer;
-
+let trainingDone=false;
 let userInputLabel;
 let amountOfTestData = 15;
 let trainingDataAmount = 40000;
@@ -30,6 +30,8 @@ function setup()
 
 function draw(){
   manualTesting();
+  // Printing the number of tensors allocated at this time
+  if (trainingDone )console.log('numTensors: ' + tf.memory().numTensors);
 }
 
 function training()
@@ -43,7 +45,8 @@ function training()
 
 
   model.fit(x, y,{batchsize: 1, epochs: 1});//.then(res=>automatedTesting());
-
+  console.log("traing done");
+  trainingDone=true;
 }
 
 function manualTraining(){
@@ -106,11 +109,13 @@ function manualTesting(){
 
     let mirroredGrid = mirro2DArray(rotatedGrid);
 
+    predictionOutput = tf.tidy(() => {
     let input = tf.tensor(mirroredGrid);
 
     input = input.reshape([1, 784]);
   
-    predictionOutput = model.predict(input);
+    return model.predict(input);
+    })
 }
 
 function rotate2DArray(array){

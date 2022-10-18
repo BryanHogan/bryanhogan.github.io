@@ -21,25 +21,23 @@ const outputSketch = (sketch) => {
         sketch.fill(0);
         sketch.textAlign(CENTER,CENTER);
 
-        if (predictionOutput != null)
-            predictionOutput.array().then(res=>  predictedNumber = IndexOfMaxValue(res[0]));
-        //print(predictedNumber);
+        let predictedIndex = tf.tidy(() => {
+         return predictionOutput.argMax(1).dataSync();})
 
-        showOutput(predictionOutput);
+        predictedNumber=predictedIndex[0];
+        showOutput(predictedNumber);
+
+        
+        predictionOutput.dispose();
     }
 
-    function showOutput(predictionOutput){
+    function showOutput(outputValue){
 
-        if (predictionOutput != null){
-          outputValueText = outputNeuronLabels[predictedNumber];
+        
+          outputValueText = outputNeuronLabels[outputValue];
           sketch.textSize(244);
           sketch.text(outputValueText, (sketch.width/2), (sketch.height/2));
-        }
-        else {
-          outputValueText = "Not identified!"
-          sketch.textSize(48);
-          sketch.text(outputValueText, (sketch.width/2), (sketch.height/2));
-        }
+     
     }
 
     function IndexOfMaxValue(array){
