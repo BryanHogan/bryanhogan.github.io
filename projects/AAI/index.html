@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <!--
   <div class="introduction-container">
     <div class="introduction">
       <h1>AAI</h1>
@@ -32,7 +33,7 @@
         which is able to learn and identify numbers and letters.</p>
       <p>Trained with MNIST-Data. Meaning it can recognise numbers. Letters can be manually learned.</p>
     </div>
-
+-->
 
   </div>
   <article id="content">
@@ -55,13 +56,13 @@
         <h1>Output</h1>
         <div id="output">
         </div>
-          <button id="correctButton">Output Is Correct</button>
-          <script>
-            let correctButton = document.getElementById("correctButton");
-            correctButton.addEventListener('click', event => {
-              resetInput();
-            });
-          </script>
+        <button id="correctButton">Output Is Correct</button>
+        <script>
+          let correctButton = document.getElementById("correctButton");
+          correctButton.addEventListener('click', event => {
+            resetInput();
+          });
+        </script>
       </section>
 
       <section>
@@ -72,7 +73,9 @@
       <section class="touch-input-container">
         <P style="margin: 15px">AI is wrong? Click what the answer should be. With each click the AI learns.</P>
         <div class="touch-input-button-container">
-          <button id="0"><p>0</p></button>
+          <button id="0">
+            <p>0</p>
+          </button>
           <button id="1">1</button>
           <button id="2">2</button>
           <button id="3">3</button>
@@ -118,9 +121,9 @@
               })
             }
           </script>
-          
+
         </div>
-      </section> 
+      </section>
 
       <section>
         <h1>How To Use</h1>
