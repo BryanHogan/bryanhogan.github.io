@@ -6,6 +6,8 @@ let amountOfTestData = 15;
 let trainingDataAmount = 40000;
 let predictionOutputIndex;
 
+let reloaded = false;
+
 let outputUnits = 36;
 
 let outputNeuronLabels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -31,8 +33,10 @@ function setup()
 function draw(){
   manualTesting();
   console.log(tf.memory().numBytesInGPU);
-  if (tf.memory().numBytesInGPU > 138000000)
+  if (tf.memory().numBytesInGPU > 137400000 && reloaded == false){
+    reloaded = true;
       window.location.reload(true);
+  }
 
 
 }
