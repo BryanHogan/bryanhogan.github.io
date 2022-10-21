@@ -1,7 +1,4 @@
 
-let predictedNumber = 0;
-
-
 const outputSketch = (sketch) => {
 
 
@@ -21,20 +18,15 @@ const outputSketch = (sketch) => {
         sketch.fill(0);
         sketch.textAlign(CENTER,CENTER);
 
-        let predictedIndex = tf.tidy(() => {
-         return predictionOutput.argMax(1).dataSync();})
-
-        predictedNumber=predictedIndex[0];
-        showOutput(predictedNumber);
+        showOutput(predictionOutputIndex);
 
         
-        predictionOutput.dispose();
     }
 
-    function showOutput(outputValue){
+    function showOutput(outputValueIndex){
 
         
-          outputValueText = outputNeuronLabels[outputValue];
+          outputValueText = outputNeuronLabels[outputValueIndex];
           sketch.textSize(244);
           sketch.text(outputValueText, (sketch.width/2), (sketch.height/2));
      

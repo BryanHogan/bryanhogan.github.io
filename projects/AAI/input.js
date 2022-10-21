@@ -53,6 +53,7 @@ sketch.draw = () => {
           lastPaintedY = -1;}
 
   drawGrid();
+
 }
 
 function drawGrid(){
