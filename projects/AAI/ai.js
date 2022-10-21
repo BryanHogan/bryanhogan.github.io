@@ -32,7 +32,7 @@ function draw(){
   manualTesting();
   console.log(tf.memory().numBytesInGPU);
   if (tf.memory().numBytesInGPU > 138000000)
-      window.location.reload(false);
+      window.location.reload(true);
 
 
 }
