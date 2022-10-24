@@ -20,15 +20,13 @@ const weightVisualizationSketch = (sketch) => {
 
       weightGrid = Array.from({ length: 28 }, () => 
       Array.from({ length: 28}));
-      //drawGrid();
-
-        //faubel();
+      
 
     }
 
     sketch.draw = () =>  {
-
-      outputToVisualize = predictedNumber;
+      
+      outputToVisualize = predictionOutputIndex;
       getWeightsOfOutputUnitIntoWeightGrid();
       let rotatedAndMirroredgrid = rotateAndMirrorArray(weightGrid);
       drawGrid(rotatedAndMirroredgrid, weightGridtileSizeX);

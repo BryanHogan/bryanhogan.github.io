@@ -4,7 +4,9 @@ let trainingDone=false;
 let userInputLabel;
 let amountOfTestData = 15;
 let trainingDataAmount = 40000;
-let predictionOutput;
+let predictionOutputIndex;
+
+let reloaded = false;
 
 let outputUnits = 36;
 
@@ -30,8 +32,13 @@ function setup()
 
 function draw(){
   manualTesting();
-  // Printing the number of tensors allocated at this time
-  if (trainingDone )console.log('numTensors: ' + tf.memory().numTensors);
+  console.log(tf.memory().numBytesInGPU);
+  if (tf.memory().numBytesInGPU > 145000000 && reloaded == false){
+    reloaded = true;
+      window.location.reload(true);
+  }
+
+
 }
 
 function training()
@@ -109,12 +116,12 @@ function manualTesting(){
 
     let mirroredGrid = mirro2DArray(rotatedGrid);
 
-    predictionOutput = tf.tidy(() => {
+    predictionOutputIndex = tf.tidy(() => {
     let input = tf.tensor(mirroredGrid);
 
     input = input.reshape([1, 784]);
   
-    return model.predict(input);
+    return model.predict(input).argMax(1).dataSync()[0];
     })
 }
 
